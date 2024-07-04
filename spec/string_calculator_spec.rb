@@ -22,6 +22,15 @@ describe StringCalculator do
         expect(StringCalculator.add("7")).to eql(7)
       end
     end
+    
+    context "two numbers" do
+      context "given '1,6'" do
+        it "returns 7" do
+          expect(StringCalculator.add("1,6")).to eql(7)
+        end
+      end
+    end
+
   end
 
 end
