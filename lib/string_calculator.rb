@@ -3,7 +3,14 @@ class StringCalculator
     if input.empty?
       0
     else
-      numbers = input.split(/[,\n]/).map(&:to_i)
+      delimiter = ","
+      if input.start_with?("//")
+        parts = input.split("\n", 2)
+        delimiter = parts[0][2..-1]
+        input = parts[1]
+      end
+
+      numbers = input.split(/#{Regexp.escape(delimiter)}|\n/).map(&:to_i)    
       numbers.inject(0) { |sum, number| sum + number }
     end
   end

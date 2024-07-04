@@ -39,6 +39,14 @@ describe StringCalculator do
       end
     end
 
+    context "beginning of the string will contain a separate line //[delimiter]\n[numbers…] " do 
+      context "given '//;\n1;2'" do
+        it "returns 8" do
+          expect(StringCalculator.add("//;\n1;2")).to eql(3)
+        end
+      end
+    end
+
   end
 
 end
